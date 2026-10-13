@@ -28,7 +28,7 @@ function infijoAPostfijo(tokens) {
       while (operadores.length > 0 && operadores[operadores.length-1] !== "(") {
         salida.push(operadores.pop());
       }
-      operadores.pop(); // quitar "("
+      operadores.pop();
     }
   });
 
@@ -42,12 +42,12 @@ function infijoAPostfijo(tokens) {
 function calcular() {
   let expr = document.getElementById("expresion").value.trim();
   if (!expr) {
-    mostrarAlerta("danger", "⚠️ La expresión está vacía. Ingresa una operación válida.");
+    mostrarAlerta("danger", "La expresión está vacía. Ingresa una operación válida.");
     return;
   }
 
   if (!expr.includes("=")) {
-    mostrarAlerta("warning", "⚠️ La expresión debe contener un signo '=' para asignar el resultado.");
+    mostrarAlerta("warning", "La expresión debe contener un signo '=' para asignar el resultado.");
     return;
   }
 
@@ -56,7 +56,7 @@ function calcular() {
   operacion = operacion.trim();
 
   if (!variable || !operacion) {
-    mostrarAlerta("danger", "⚠️ La expresión no está completa. Revisa la sintaxis.");
+    mostrarAlerta("danger", "La expresión no está completa. Revisa la sintaxis.");
     return;
   }
 
@@ -68,7 +68,7 @@ function calcular() {
     let resultado = eval(operacion.replace(/[a-zA-Z]/g, "1"));
     document.getElementById("resultado").textContent = resultado;
   } catch {
-    mostrarAlerta("danger", "❌ Error al evaluar la expresión. Revisa la sintaxis.");
+    mostrarAlerta("danger", "Error al evaluar la expresión. Revisa la sintaxis.");
     return;
   }
 
